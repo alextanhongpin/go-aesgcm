@@ -56,7 +56,7 @@ func encrypt(keyPhrase string, plaintext []byte) ([]byte, error) {
 	// to keep track of the nonce separately when decrypting.
 	//
 	// nonce := nonceCiphertext[:nonceSize]
-	// nonceCiphertext := nonceCiphertext[nonceSize:]
+	// ciphertext := nonceCiphertext[nonceSize:]
 	nonceCiphertext := aesgcm.Seal(nonce, nonce, plaintext, nil)
 
 	return nonceCiphertext, nil
